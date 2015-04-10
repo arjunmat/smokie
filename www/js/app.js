@@ -16,8 +16,8 @@ angular.module('smokie', ['ionic', 'ionic.utils', 'ngCordova', 'smokie.controlle
       StatusBar.styleDefault();
     }
     
-    //db = $cordovaSQLite.openDB("smokie.db");
-    db = window.openDatabase("smokie.db", "1.0", "Cordova Demo", 200000);
+    db = $cordovaSQLite.openDB("smokie.db");
+    //db = window.openDatabase("smokie.db", "1.0", "Cordova Demo", 200000);
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS smokes (id integer primary key, drink boolean DEFAULT false, timestamp DATETIME DEFAULT (datetime('now','localtime')))");
   });
 })
