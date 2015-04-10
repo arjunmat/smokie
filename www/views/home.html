@@ -1,0 +1,43 @@
+<ion-view view-title="SMOKIE">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content style="text-align:center;">
+    <div class="desc-text">Log your cigarettes and count the number of smokes every day. Tracking the number of cigarettes is one of the best way to cut down your smoking. If you are out having a drink, check the <b>I'm having a drink</b> box.
+    <br />
+    <br />
+    If you're smoking something other than cigarettes, feel free to donate some of the goodness to us.</div>
+    <ul class="list" style="text-align: left;">
+      <li class="item item-checkbox">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="smoke.drink">
+         </label>
+         I'm having a drink now
+      </li>
+    </ul>
+
+    <div class="row">
+      <div class="col">
+        <button class="button button-small button-assertive log-smoke-btn" ng-click="logSmoke()">
+          Log a smoke now
+        </button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+        <ion-list>
+          <ion-item class="item item-icon-right" ng-repeat="item in smokes">
+            <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+            {{ item.fullDate | fromNow }}
+            <i class="icon ion-beer" ng-show="item.drink"></i>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+    
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive">
+    <div class="title">{{ dayCount }} cigarettes today</div>
+  </ion-footer-bar>
+</ion-view>
